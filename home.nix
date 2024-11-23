@@ -22,12 +22,13 @@
     # # "Hello, world!" when run.
     # pkgs.hello
 
-	pkgs.coreutils
-	pkgs.neovim
-	pkgs.gh
-	pkgs.fd
-	pkgs.ripgrep
-	pkgs.tree
+    pkgs.coreutils
+    pkgs.neovim
+    pkgs.gh
+    pkgs.fd
+    pkgs.ripgrep
+    pkgs.tree
+    pkgs.tmux
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -50,6 +51,8 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
+
+    ".config/tmux".source = dot/tmux;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -103,23 +106,11 @@
   programs.starship.enable = true;
   programs.fzf.enable = true;
 
-  programs.tmux = {
-    enable = true;
-    prefix = "C-a";
-    keyMode = "vi";
-    extraConfig = ''
-    bind h select-pane -L
-    bind j select-pane -D
-    bind k select-pane -U
-    bind l select-pane -R
-    bind C-h select-pane -L
-    bind C-j select-pane -D
-    bind C-k select-pane -U
-    bind C-l select-pane -R
-    bind J swap-pane -D
-    bind K swap-pane -U
-    '';
-  };
+  #programs.tmux = {
+  #  enable = true;
+  #  prefix = "C-a";
+  #  keyMode = "vi";
+  #};
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
