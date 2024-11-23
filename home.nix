@@ -99,9 +99,22 @@
     sessionVariables = {
     };
   };
+  programs.zsh = {
+    enable = true;
+    defaultKeymap = "viins";
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    history.size = 100000;
+    shellAliases = {
+      ls = "ls --color=auto";
+    };
+    sessionVariables = {
+    };
+  };
   programs.dircolors = {
     enable = true;
     enableBashIntegration = true;
+    enableZshIntegration = true;
   };
   programs.starship.enable = true;
   programs.fzf.enable = true;
