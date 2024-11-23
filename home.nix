@@ -101,7 +101,20 @@
   programs.rbenv.enable = false;             # ruby package version manager
   programs.scmpuff.enable = false;           # git cli shortcuts
   programs.skim.enable = false;              # fuzzy finder (ctrl-R)
-  programs.starship.enable = true;           # prompt theme engine
+  programs.starship = {                      # prompt theme engine
+    enable = true;
+    settings = {
+      add_newline = false;
+      command_timeout = 1300;
+      scan_timeout = 50;
+      format= ''$username$hostname$directory$character'';
+      right_format= ''$nix_shell$nodejs$lua$golang$rust$php$git_branch$git_commit$git_state$git_status'';
+      character = {
+        success_symbol = "[](bold green) ";
+        error_symbol = "[✗](bold red) ";
+      };
+    };
+  };
   programs.thefuck.enable = false;           # correct failed command
   programs.watson.enable = false;            # cli time tracker
   programs.wezterm.enable = false;           # terminal
