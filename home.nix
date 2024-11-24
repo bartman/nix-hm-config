@@ -57,6 +57,9 @@
     };
     sessionVariables = {
     };
+    #bashrcExtra = "";
+    #initExtra = "";
+    profileExtra = (import ./switch-to-nix-bash.nix);
   };
   programs.zsh = {
     enable = true;
@@ -69,8 +72,13 @@
       vim = "nvim";
       ls = "ls --color=auto";
     };
-    sessionVariables = {
-    };
+    #sessionVariables = { };
+    #envExtra = "";
+    #initExtra = "";
+    #initExtraBeforeCompInit = "";
+    #loginExtra = "";
+    #logoutExtra = "";
+    initExtraFirst = (import ./switch-to-nix-zsh.nix);
   };
 
   # ----------------------------------------------------------------------

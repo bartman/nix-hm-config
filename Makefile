@@ -1,2 +1,5 @@
+SHELL = $(wildcard ~/.nix-profile/bin/bash)
+PWD   = $(shell pwd)
+
 all:
-	home-manager switch --flake $(shell pwd)/#bart
+	home-manager switch --flake ${PWD}/#bart
