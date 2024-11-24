@@ -1,3 +1,4 @@
+{
   programs.starship = {                         # prompt theme engine
     enable = true;
     settings = {
@@ -118,3 +119,4 @@
       };
     };
   };
+};
