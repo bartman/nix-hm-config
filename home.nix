@@ -101,17 +101,98 @@
   #programs.rbenv.enable = true;             	# ruby package version manager
   #programs.scmpuff.enable = true;           	# git cli shortcuts
   #programs.skim.enable = true;              	# fuzzy finder (ctrl-R)
-  programs.starship = {                      # prompt theme engine
+  programs.starship = {                         # prompt theme engine
     enable = true;
     settings = {
       add_newline = false;
       command_timeout = 1300;
       scan_timeout = 50;
       format= ''$username$hostname$directory$character'';
-      right_format= ''$nix_shell$nodejs$lua$golang$rust$php$git_branch$git_commit$git_state$git_status'';
+      right_format= ''$nix_shell$git_branch$git_commit$git_state$git_status'';
+      fill = {
+        symbol = " ";
+      };
+      line_break = {
+        disabled = true;
+      };
+      username = {
+        format = "[$user]($style) ";
+        style_root = "red bold";
+        style_user = "yellow bold";
+      };
+      hostname = {
+        ssh_only = true;
+        ssh_symbol = "🌐 ";
+        trim_at = ".";
+        format = "[$ssh_symbol$hostname]($style) ";
+        style = "green dimmed bold";
+      };
+      directory = {
+        truncate_to_repo = true;
+        format = "[ﱮ $path ]($style)";
+        style = "fg:#3B76F0";
+      };
+      nix_shell = {
+        format = "[$symbol$state( \\($name\\))]($style) ";
+        symbol = "❄️  ";
+        style = "bold blue";
+        impure_msg = "impure";
+        pure_msg = "pure";
+        unknown_msg = "";
+      };
+      git_branch = {
+        symbol = " ";
+        format = "[ $symbol$branch(:$remote_branch) ]($style)";
+        style = "fg:#FCF392";
+      };
+      git_metrics = {
+        format = "([+$added]($added_style) )([-$deleted]($deleted_style) )";
+        ignore_submodules = false;
+        added_style = "bold green";
+        deleted_style = "bold red";
+        only_nonzero_diffs = true;
+      };
+      git_commit = {
+        format = "[\\($hash$tag\\)]($style) ";
+        style = "green bold";
+        commit_hash_length = 7;
+        only_detached = true;
+        tag_symbol = " 🏷  ";
+        tag_disabled = true;
+        tag_max_candidates = 0;
+      };
+      git_state = {
+        format = "\\([$state( $progress_current/$progress_total)]($style)\\) ";
+        style = "bold yellow";
+        rebase = "REBASING";
+        merge = "MERGING";
+        revert = "REVERTING";
+        cherry_pick = "CHERRY-PICKING";
+        bisect = "BISECTING";
+        am = "AM";
+        am_or_rebase = "AM/REBASE";
+      };
+      git_status = {
+        format = "([$all_status$ahead_behind]($style) )";
+        style = "red bold";
+        stashed = "📦";
+        ahead = "⬆$count";
+        behind = "⬇$count";
+	up_to_date = "";
+        diverged = "↕";
+        conflicted = "🚫";
+        deleted = "✘";
+        renamed = "»";
+        modified = "🖍️"; # 🖊🖋️🖍️
+        staged = "+";
+        untracked = "?";
+        typechanged = "";
+        ignore_submodules = false;
+      };
       character = {
-        success_symbol = "[](bold green) ";
-        error_symbol = "[✗](bold red) ";
+        success_symbol = "[❯](bold green)";
+        vicmd_symbol = "[❮](bold green)";
+        error_symbol = "[✗](bold red)";
       };
     };
   };
