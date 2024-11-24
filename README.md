@@ -1,7 +1,10 @@
 # my NixOS / home-manager config
 
-Initial notes on how I converted my Raspbery Pi 5 with Debian 12 to use Nix:
-https://gist.github.com/bartman/7ffc5fe7b38e9e736ce6ef58e2571f31
+
+# preperation
+
+You should walk through the "[system-configuration](https://gist.github.com/bartman/7ffc5fe7b38e9e736ce6ef58e2571f31#system-configuration)" section of the "[gist](https://gist.github.com/bartman/7ffc5fe7b38e9e736ce6ef58e2571f31)" where I converted a Raspbery Pi 5 with Debian 12 to use Nix.
+
 
 # how to use this
 
