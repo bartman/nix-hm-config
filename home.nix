@@ -59,7 +59,7 @@
     };
     #bashrcExtra = "";
     #initExtra = "";
-    #profileExtra = (import ./switch-to-nix-bash.nix);
+    profileExtra = (import ./switch-to-nix-bash.nix);
   };
   programs.zsh = {
     enable = true;
@@ -78,7 +78,7 @@
     #initExtraBeforeCompInit = "";
     #loginExtra = "";
     #logoutExtra = "";
-    #initExtraFirst = (import ./switch-to-nix-zsh.nix);
+    initExtraFirst = (import ./switch-to-nix-zsh.nix);
   };
 
   # ----------------------------------------------------------------------
