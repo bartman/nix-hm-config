@@ -10,6 +10,7 @@
     if [[ -x $_nix_zsh && -n "$_nix_stat" && $_nix_stat != $_zsh_stat ]] ; then
       echo switching $SHELL to Nix $_nix_zsh
       export SHELL="$_nix_zsh"
+      unset __HM_SESS_VARS_SOURCED __HM_ZSH_SESS_VARS_SOURCED
       exec "$SHELL" -i
     fi
     unset _nix_zsh _nix_stat _zsh_stat
