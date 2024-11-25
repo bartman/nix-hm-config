@@ -13,6 +13,7 @@
     ripgrep
     tree
     tmux
+    nix-index
 
     # (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
@@ -74,7 +75,11 @@
     };
     #sessionVariables = { };
     #envExtra = "";
-    #initExtra = "";
+    initExtra = ''
+    bindkey -v "^E" end-of-line
+    bindkey -v "^N" down-history
+    bindkey -v "^P" up-history
+    '';
     #initExtraBeforeCompInit = "";
     #loginExtra = "";
     #logoutExtra = "";
