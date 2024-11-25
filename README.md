@@ -10,7 +10,7 @@ TL;DR
 - `sudo /sbin/adduser $USER nix-users`
 - `sudo tee -a /etc/nix/nix.conf <<<"experimental-features = nix-command flakes"`
 - `sudo cp /usr/share/doc/nix-bin/examples/nix-profile-daemon.sh /etc/profile.d/`
-- `exec $SHELL`
+- `sudo reboot`
 
 
 # backup
