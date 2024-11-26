@@ -6,7 +6,7 @@
 You should walk through the "[system-configuration](https://gist.github.com/bartman/7ffc5fe7b38e9e736ce6ef58e2571f31#system-configuration)" section of the "[gist](https://gist.github.com/bartman/7ffc5fe7b38e9e736ce6ef58e2571f31)" where I converted a Raspbery Pi 5 with Debian 12 to use Nix.
 
 TL;DR
-- `sudo apt install nix-setup-systemd`
+- `sudo apt install nix-setup-systemd git zsh neovim`
 - `sudo /sbin/adduser $USER nix-users`
 - `sudo tee -a /etc/nix/nix.conf <<<"experimental-features = nix-command flakes"`
 - `sudo cp /usr/share/doc/nix-bin/examples/nix-profile-daemon.sh /etc/profile.d/`
