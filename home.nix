@@ -1,14 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
-let
-  tmux-tpm = import ./tmux-tpm.nix { inherit pkgs; };
-in
 {
   home.username = "bart";
   home.homeDirectory = "/home/bart";
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    git
     coreutils
     neovim
     gh
@@ -30,6 +28,13 @@ in
   # dot files
   home.file = {
     ".config/tmux".source = dot/tmux;
+  };
+
+  home.activation = {
+    installTmuxPlugins = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+      mkdir -p ~/.tmux/plugins
+      git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    '';
   };
 
   # ----------------------------------------------------------------------
