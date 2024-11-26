@@ -33,7 +33,9 @@
   home.activation = {
     installTmuxPlugins = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
       mkdir -p ~/.tmux/plugins
-      git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+      [ -d ~/.tmux/plugins/tpm/.git ] \
+      && git -C ~/.tmux/plugins/tpm pull \
+      || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     '';
   };
 
