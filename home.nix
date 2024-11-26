@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  tmux-tpm = import ./tmux-tpm.nix { inherit pkgs; };
+in
 {
   home.username = "bart";
   home.homeDirectory = "/home/bart";
@@ -122,13 +125,21 @@
   #programs.z-lua.enable = true;             	# cd-replacement
   programs.zoxide.enable = true;             	# cd-replacement
 
+  # ----------------------------------------------------------------------
   # services
   #services.gpg-agent.enable = false;
+
+  # ----------------------------------------------------------------------
+  # tmux
 
   #programs.tmux = {
   #  enable = true;
   #  prefix = "C-a";
   #  keyMode = "vi";
+  #  extraConfig = ''
+  #  set -g status-right '#[fg=black,bg=color15] #{cpu_percentage}  %H:%M '
+  #  run-shell ${pkgs.tmuxPlugins.extrakto}/share/tmux-plugins/extrakto/extrakto.tmux
+  #'';
   #};
 
   # Let Home Manager install and manage itself.
