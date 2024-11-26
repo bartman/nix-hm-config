@@ -14,6 +14,7 @@
     tree
     tmux
     nix-index
+    vivid
 
     # (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
@@ -60,7 +61,7 @@
     };
     #bashrcExtra = "";
     #initExtra = "";
-    profileExtra = (import ./switch-to-nix-bash.nix);
+    profileExtra = (import ./bash-switch-to-nix.nix);
   };
   programs.zsh = {
     enable = true;
@@ -83,7 +84,7 @@
     #initExtraBeforeCompInit = "";
     #loginExtra = "";
     #logoutExtra = "";
-    initExtraFirst = (import ./switch-to-nix-zsh.nix);
+    initExtraFirst = (import ./zsh-switch-to-nix.nix);
   };
 
   # ----------------------------------------------------------------------
