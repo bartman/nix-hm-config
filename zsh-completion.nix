@@ -17,7 +17,7 @@
     zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list
     zstyle ':completion:*' menu select=1
     zstyle ':completion:*' file-sort name
-    zstyle ':completion:*' list-colors ${(s.:.)ZLS_COLORS}
+    zstyle ':completion:*' list-colors $${(s.:.)ZLS_COLORS}
     zstyle ':completion:*' matcher-list 'r:|[._-]=** r:|=**' 'l:|=** r:|=**'
     zstyle ':completion:*' menu select
     zstyle ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)/3 )) numeric )'
@@ -46,7 +46,7 @@
 
     users=($USER root labuser)
     if [[ $USER = bart ]] ; then
-        users=(${users[@]} bartman)
+        users=($${users[@]} bartman)
     fi
     zstyle ':completion:*' users $users
 
