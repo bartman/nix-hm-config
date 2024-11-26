@@ -167,8 +167,6 @@ typeset -ga preexec_functions
 typeset -ga precmd_functions
 typeset -ga chpwd_functions
 
-[ -w $zsh_cache ] && HISTFILE=$zsh_cache/history
-
 HISTSIZE=10000              # size of history
 LISTMAX=1000                # never ask
 NULLCMD='cat'               # use cat for > null commands
