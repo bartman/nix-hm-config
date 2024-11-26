@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.username = "bart";
@@ -6,6 +6,7 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    git
     coreutils
     neovim
     gh
@@ -27,6 +28,15 @@
   # dot files
   home.file = {
     ".config/tmux".source = dot/tmux;
+  };
+
+  home.activation = {
+    installTmuxPlugins = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+      mkdir -p ~/.tmux/plugins
+      [ -d ~/.tmux/plugins/tpm/.git ] \
+      && git -C ~/.tmux/plugins/tpm pull \
+      || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    '';
   };
 
   # ----------------------------------------------------------------------
@@ -122,13 +132,21 @@
   #programs.z-lua.enable = true;             	# cd-replacement
   programs.zoxide.enable = true;             	# cd-replacement
 
+  # ----------------------------------------------------------------------
   # services
   #services.gpg-agent.enable = false;
+
+  # ----------------------------------------------------------------------
+  # tmux
 
   #programs.tmux = {
   #  enable = true;
   #  prefix = "C-a";
   #  keyMode = "vi";
+  #  extraConfig = ''
+  #  set -g status-right '#[fg=black,bg=color15] #{cpu_percentage}  %H:%M '
+  #  run-shell ${pkgs.tmuxPlugins.extrakto}/share/tmux-plugins/extrakto/extrakto.tmux
+  #'';
   #};
 
   # Let Home Manager install and manage itself.
