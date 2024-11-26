@@ -77,7 +77,8 @@
     #sessionVariables = { };
     #envExtra = "";
     initExtra = (import ./zsh-options.nix)
-              + (import ./zsh-binds.nix);
+              + (import ./zsh-binds.nix)
+              + (import ./zsh-completion.nix);
     #initExtraBeforeCompInit = "";
     #loginExtra = "";
     #logoutExtra = "";
