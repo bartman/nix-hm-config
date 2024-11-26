@@ -76,11 +76,8 @@
     };
     #sessionVariables = { };
     #envExtra = "";
-    initExtra = ''
-    bindkey -v "^E" end-of-line
-    bindkey -v "^N" down-history
-    bindkey -v "^P" up-history
-    '';
+    initExtra = (import ./zsh-options.nix)
+              + (import ./zsh-binds.nix);
     #initExtraBeforeCompInit = "";
     #loginExtra = "";
     #logoutExtra = "";
