@@ -16,6 +16,7 @@
     tmux
     nix-index
     vivid
+    difftastic
 
     # (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 

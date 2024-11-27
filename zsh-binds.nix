@@ -10,17 +10,12 @@
     bindkey -v "^E" end-of-line
     bindkey -v "^K" kill-line
     bindkey -v "^L" clear-screen
-    #bindkey -v "^R" history-incremental-search-backward
-    bindkey -v '^R' history-incremental-pattern-search-backward
-    bindkey -v "^U" kill-whole-line
-    bindkey -v "^V" quoted-insert
-    bindkey -v "^W" backward-kill-word
+    bindkey -v "^U" vi-kill-line
+    bindkey -v "^V" vi-quoted-insert
+    bindkey -v "^W" vi-backward-kill-word
 
     bindkey -v "^N" down-history
     bindkey -v "^P" up-history
-
-    bindkey -v "^[H" run-help
-    bindkey -v "^[h" run-help
 
     # alow for editing of the command line
     # http://zshwiki.org/home/examples/zlewidgets
@@ -30,7 +25,4 @@
 
     # Shift-Tab reverse through list of completions
     bindkey '^[[Z' reverse-menu-complete
-
-    # Ctl-` accept autosuggest
-    bindkey '^@' autosuggest-accept
 ''
