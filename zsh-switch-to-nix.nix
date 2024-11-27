@@ -11,7 +11,7 @@
     _run_stat=$(stat -c '%i' $_run_zsh)
     if [[ -x $_nix_zsh && -n "$_nix_stat" && $_nix_stat != $_run_stat ]] ; then
       #echo switching $_run_zsh to Nix $_nix_zsh
-      export SHELL="$_nix_zsh"
+      #export SHELL="$_nix_zsh"
       unset __HM_SESS_VARS_SOURCED __HM_ZSH_SESS_VARS_SOURCED
       exec "$_nix_zsh" -i -l
     fi
