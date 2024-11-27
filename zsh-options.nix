@@ -72,6 +72,7 @@ setopt hash_cmds            # do not always search through path, hash cmds
 setopt hash_dirs            # hash directories holding commands too
 setopt hash_list_all        # verify path hash on completion
 setopt hist_allow_clobber   # add | to redirections in history
+setopt hist_save_by_copy    # copy file, then rename to not lose history
 setopt no_hist_beep         # don't beep on history expansion errors
 #setopt hist_expire_dups_first
 setopt hist_find_no_dups    # don't show dups even if not contiguous
@@ -158,21 +159,16 @@ setopt vi                   # use bindkeys
 setopt no_xtrace            # do not debug by default
 setopt zle                  # use zsh le
 
-is-at-least 4.3.0 && {
-    unsetopt hist_save_by_copy
-}
 
 # http://xanana.ucsc.edu/~wgscott/wordpress_new/wordpress/?p=12
 typeset -ga preexec_functions
 typeset -ga precmd_functions
 typeset -ga chpwd_functions
 
-HISTSIZE=10000              # size of history
 LISTMAX=1000                # never ask
 NULLCMD='cat'               # use cat for > null commands
 REPORTTIME=2                # report time if execution exceeds amount of seconds
-SAVEHIST=10000              # maximum of history events to be save
-LOGCHECK=60
+LOGCHECK=60                 # how often to check for logins
 watch=(notme)               # watch login/logout
 WORDCHARS="*?_-.[]~/&;!#$%^(){}<>"
                             # part of word in line editor
