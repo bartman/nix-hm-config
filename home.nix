@@ -17,6 +17,7 @@
     nix-index
     vivid
     difftastic
+    netcat
 
     # (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
@@ -34,9 +35,11 @@
   home.activation = {
     installTmuxPlugins = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
       mkdir -p ~/.tmux/plugins
-      [ -d ~/.tmux/plugins/tpm/.git ] \
-      && git -C ~/.tmux/plugins/tpm pull \
-      || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+      if [ -x ~/.tmux/plugins/tpm/tpm ] ; then
+        git -C ~/.tmux/plugins/tpm pull
+      else
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+      fi
     '';
   };
 
