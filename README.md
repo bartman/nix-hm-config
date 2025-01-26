@@ -1,5 +1,8 @@
-# my NixOS / home-manager config
+# my home-manager config
 
+This is a `home-manager` config that I started to play around with NixOS.
+I've since moved to [bartman/nixos-config](https://github.com/bartman/nixos-config) for a full NixOS experience.
+This repo is not maintained.
 
 # system preperation
 
